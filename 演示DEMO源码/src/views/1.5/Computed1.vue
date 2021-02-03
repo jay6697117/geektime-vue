@@ -1,7 +1,7 @@
 <template>
   <div>
-    {{ fullName }}
-
+    Computed1 fullName:
+    <span style="background:#ccc">{{ fullName }}</span>
     <div>
       firstName:
       <input v-model="firstName" />
@@ -22,12 +22,13 @@ export default {
   },
   computed: {
     fullName: function() {
-      return this.firstName + ' ' + this.lastName;
+      return this.firstName + '--' + this.lastName;
     }
   },
   watch: {
-    fullName: function(val, oldVal) {
-      console.log('new: %s, old: %s', val, oldVal);
+    fullName: function(newVal, oldVal) {
+      console.log('fullName newVal :>> ', newVal);
+      console.log('fullName oldVal :>> ', oldVal);
     }
   }
 };

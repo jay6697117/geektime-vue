@@ -22,20 +22,24 @@ export default {
   watch: {
     a: function(val, oldVal) {
       this.b.c += 1;
-      console.log('new: %s, old: %s', val, oldVal);
+      console.log('a val :>> ', val);
+      console.log('a oldVal :>> ', oldVal);
     },
     'b.c': function(val, oldVal) {
       this.b.d += 1;
-      console.log('new: %s, old: %s', val, oldVal);
+      console.log('b.c val :>> ', val);
+      console.log('b.c oldVal :>> ', oldVal);
     },
     'b.d': function(val, oldVal) {
       this.e.f.g += 1;
-      console.log('new: %s, old: %s', val, oldVal);
+      console.log('b.d val :>> ', val);
+      console.log('b.d oldVal :>> ', oldVal);
     },
     e: {
       handler: function(val, oldVal) {
         this.h.push('😄');
-        console.log('new: %s, old: %s', val, oldVal);
+        console.log('e val :>> ', val);
+        console.log('e oldVal :>> ', oldVal);
       },
       deep: true
       // immediate: true

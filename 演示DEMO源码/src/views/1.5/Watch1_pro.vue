@@ -1,7 +1,8 @@
 <template>
   <div>
-    {{ fullName }}
-
+    fullName:
+    <span style="background:#ccc">{{ fullName }}</span>
+    <hr />
     <div>
       firstName:
       <input v-model="firstName" />
@@ -10,6 +11,9 @@
       lastName:
       <input v-model="lastName" />
     </div>
+    <hr />
+    <h2>firstTimeout: {{ firstTimeout }}</h2>
+    <h2>lastTimeout: {{ lastTimeout }}</h2>
   </div>
 </template>
 <script>
@@ -18,7 +22,9 @@ export default {
     return {
       firstName: 'Foo',
       lastName: 'Bar',
-      fullName: 'Foo Bar'
+      fullName: 'Foo Bar',
+      firstTimeout: null,
+      lastTimeout: null
     };
   },
   watch: {
@@ -26,14 +32,19 @@ export default {
       clearTimeout(this.firstTimeout);
       this.firstTimeout = setTimeout(() => {
         this.fullName = val + ' ' + this.lastName;
-      }, 500);
+        this.firstTimeout = 1;
+      }, 300);
     },
     lastName: function(val) {
       clearTimeout(this.lastTimeout);
       this.lastTimeout = setTimeout(() => {
         this.fullName = this.firstName + ' ' + val;
-      }, 500);
+        this.lastTimeout = 1;
+      }, 300);
     }
+  },
+  mounted() {
+    window.vm = this;
   }
 };
 </script>

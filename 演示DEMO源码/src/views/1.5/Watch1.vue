@@ -1,7 +1,7 @@
 <template>
   <div>
-    {{ fullName }}
-
+    Watch1 fullName:
+    <span style="background:#ccc">{{ fullName }}</span>
     <div>
       firstName:
       <input v-model="firstName" />
@@ -23,10 +23,10 @@ export default {
   },
   watch: {
     firstName: function(val) {
-      this.fullName = val + ' ' + this.lastName;
+      this.fullName = val + '--' + this.lastName;
     },
     lastName: function(val) {
-      this.fullName = this.firstName + ' ' + val;
+      this.fullName = this.firstName + '--' + val;
     }
   }
 };

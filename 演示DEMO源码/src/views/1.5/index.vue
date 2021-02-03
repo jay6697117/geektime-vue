@@ -10,6 +10,8 @@
       <a-tab-pane key="vs" tab="计算属性 vs 侦听器">
         <Computed1 />
         <br />
+        <hr />
+        <br />
         <Watch1 />
       </a-tab-pane>
       <a-tab-pane key="Watch1_pro" tab="防抖版">
