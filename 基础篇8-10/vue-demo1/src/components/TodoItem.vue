@@ -7,6 +7,7 @@
     <button v-show="!del" @click="handleClick">删除</button>
   </li>
 </template>
+
 <script>
 export default {
   name: 'TodoItem',
@@ -33,6 +34,7 @@ export default {
   }
 };
 </script>
+
 <style scoped>
 .red {
   color: red;
