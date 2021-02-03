@@ -6,6 +6,7 @@
       <button @click="handleListChange">change this.list</button>
     </p>
     <PropsAndData :name="name" :info="info" :list="list" />
+    <div>{{ name }}</div>
   </div>
 </template>
 <script>
