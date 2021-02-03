@@ -1,7 +1,7 @@
 <template>
   <div>
     fullName:
-    <span style="background:#ccc">{{ fullName }}</span>
+    <span style="background:#ccc;padding:2px 5px;">{{ fullName }}</span>
     <hr />
     <div>
       firstName:
@@ -22,7 +22,7 @@ export default {
     return {
       firstName: 'Foo',
       lastName: 'Bar',
-      fullName: 'Foo Bar',
+      fullName: 'Foo--Bar',
       firstTimeout: null,
       lastTimeout: null
     };
@@ -31,14 +31,14 @@ export default {
     firstName: function(val) {
       clearTimeout(this.firstTimeout);
       this.firstTimeout = setTimeout(() => {
-        this.fullName = val + ' ' + this.lastName;
+        this.fullName = val + '--' + this.lastName;
         this.firstTimeout = 1;
       }, 300);
     },
     lastName: function(val) {
       clearTimeout(this.lastTimeout);
       this.lastTimeout = setTimeout(() => {
-        this.fullName = this.firstName + ' ' + val;
+        this.fullName = this.firstName + '--' + val;
         this.lastTimeout = 1;
       }, 300);
     }
