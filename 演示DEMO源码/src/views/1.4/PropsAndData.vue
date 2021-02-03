@@ -4,6 +4,7 @@
     <p>props.name: {{ name }}</p>
     <p>props.list: {{ list }}</p>
     <p>data.a: {{ a }}</p>
+    <p>data.b: {{ b }}</p>
     <p>
       <button @click="handleBChange">change data.b</button>
     </p>

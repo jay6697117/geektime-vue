@@ -38,10 +38,15 @@ export default {
         console.log('new: %s, old: %s', val, oldVal);
       },
       deep: true
+      // immediate: true
     },
     h(val, oldVal) {
-      console.log('new: %s, old: %s', val, oldVal);
+      console.log('h val :>> ', val);
+      console.log('h oldVal :>> ', oldVal);
     }
+  },
+  mounted() {
+    window.vm = this;
   }
 };
 </script>

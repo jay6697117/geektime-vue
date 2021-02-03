@@ -1,5 +1,7 @@
 <template>
   <div>
+    <h1>{{ $data }}</h1>
+    <br />
     <p>Reversed message1: "{{ reversedMessage1 }}"</p>
     <p>Reversed message2: "{{ reversedMessage2() }}"</p>
     <p>{{ now }}</p>
