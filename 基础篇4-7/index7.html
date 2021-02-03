@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app">
+      {{message}} {{message + message}}
+      <div :id="message"></div>
+      <!-- <todo-list>
+        <todo-item
+          data-test="li-test"
+          @delete="handleDelete"
+          v-for="item in list"
+          :key="item.id"
+          :title="item.title"
+          :del="item.del"
+        ></todo-item>
+      </todo-list> -->
+      <todo-list>
+        <template v-slot:default>
+          <todo-item
+            data-test="li-test"
+            @delete="handleDelete"
+            v-for="item in list"
+            :key="item.id"
+            :title="item.title"
+            :del="item.del"
+          >
+            <template v-slot:pre-icon="{iconPre}">
+              <span class="icon-pre">前置图标:{{iconPre}} |</span>
+            </template>
+            <!-- <span class="icon-pre" slot="pre-icon" slot-scope="{iconPre}">前置图标:{{iconPre}} |</span> -->
+            <span>default</span>
+            <template v-slot:suf-icon="{iconSuf}">
+              <span class="icon-suf">后置图标:{{iconSuf}} |</span>
+            </template>
+            <!-- <span class="icon-suf" slot="suf-icon" slot-scope="{iconSuf}">后置图标:{{iconSuf}} |</span> -->
+          </todo-item>
+        </template>
+      </todo-list>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      Vue.component('todo-item', {
+        //具名插槽+匿名插槽
+        template: `
+          <li>
+            <slot name="pre-icon" :iconPre="iconPre"/></slot>
+            <slot name="pre-icon1">1🌹 |</slot>
+            <slot>2🌹 |</slot>
+            <span v-if="!del">{{title}} |</span>
+            <span v-else style="text-decoration: line-through">{{title}} |</span>
+            <button v-show="!del" @click="clickDelBtn">删除</button>
+            <slot name="suf-icon" :iconSuf="iconSuf"></slot>
+            <slot name="suf-icon1">1😄 |</slot>
+            <slot>2😄 |</slot>
+          </li>
+        `,
+        data() {
+          return {
+            iconPre: '0🌹',
+            iconSuf: '0😄'
+          };
+        },
+        props: {
+          title: String,
+          del: {
+            type: Boolean,
+            default: false
+          }
+        },
+        methods: {
+          clickDelBtn(e) {
+            console.log('点击删除按钮');
+            this.$emit('delete', this.title);
+          }
+        }
+      });
+
+      Vue.component('todo-list', {
+        // 默认插槽
+        template: `
+            <ul>
+              <slot></slot>
+            </ul>
+          `,
+        data() {
+          return {};
+        }
+      });
+
+      //vue根实例只有一个所有不用考虑data选项复用导致的对象类型引用问题
+      new Vue({
+        data: {
+          message: 'hello world',
+          list: [
+            {
+              id: '001',
+              title: '课程1',
+              del: false
+            },
+            {
+              id: '002',
+              title: '课程2',
+              del: true
+            },
+            {
+              id: '003',
+              title: '课程3',
+              del: false
+            },
+            {
+              id: '004',
+              title: '课程4',
+              del: true
+            }
+          ]
+        },
+        methods: {
+          handleDelete(val) {
+            console.log('handleDelete', val);
+          }
+        }
+      }).$mount('#app');
+    </script>
+  </body>
+</html>

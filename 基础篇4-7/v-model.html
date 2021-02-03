@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .btn {
+        margin-right: 10px;
+        font-size: 18px;
+      }
+    </style>
+  </head>
+
+  <body>
+    <div id="app">
+      <base-checkbox
+        :class="`ck-${index}`"
+        v-for="(item,index) in lovingVue"
+        :key="item.id"
+        v-model="item.ck"
+      ></base-checkbox>
+      <hr />
+      <button class="btn" v-for="item in lovingVue" :key="item.id">{{ item.ck }}</button>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      new Vue({
+        data: {
+          lovingVue: [
+            { ck: true, id: '001' },
+            { ck: false, id: '002' },
+            { ck: false, id: '003' }
+          ]
+        },
+        components: {
+          'base-checkbox': {
+            template: `
+              <div>
+                运动<input
+                  type="checkbox"
+                  v-bind:checked="checked"
+                  v-on:change="handleChange($event)"
+                >
+              </div>
+            `,
+            model: {
+              prop: 'checked',
+              event: 'change'
+            },
+            props: {
+              checked: Boolean
+            },
+            methods: {
+              handleChange(e) {
+                this.$emit('change', e.target.checked);
+              }
+            },
+            mounted() {
+              console.log('base-checkbox checked :>> ', this.checked);
+            }
+          }
+        },
+        watch: {
+          lovingVue: {
+            handler(newVal) {
+              console.log('lovingVue newVal:>> ', newVal);
+            },
+            immediate: true,
+            deep: true
+          }
+        }
+      }).$mount('#app');
+    </script>
+  </body>
+</html>

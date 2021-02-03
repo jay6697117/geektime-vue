@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+
+  <body>
+    <div id="app">
+      {{message}} {{message + message}}
+      <div :id="message"></div>
+      <!-- <ul>
+        <todo-item v-for="item in list" :key="item.id" :id="item.id" :title="item.title" :del="item.del"></todo-item>
+      </ul> -->
+      <todo-list :list-prop="list" data-test="ul-test"></todo-list>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script>
+      Vue.component('todo-item', {
+        template: `
+            <li>
+                <span v-if="!del">{{title}}</span>
+                <span v-else style="text-decoration: line-through">{{title}}</span>
+                <button v-show="!del">删除</button>
+                <span>id:{{id}}</span>
+            </li>
+          `,
+        data() {
+          return {};
+        },
+        props: {
+          id: {
+            type: String,
+            default: ''
+          },
+          title: {
+            type: String,
+            default: ''
+          },
+          del: {
+            type: Boolean,
+            default: false
+          }
+        },
+        methods: {}
+      });
+
+      Vue.component('todo-list', {
+        template: `
+            <ul>
+              <todo-item data-test="li-test" v-for="item in listProp" :key="item.id" :id="item.id" :title="item.title" :del="item.del"></todo-item>
+            </ul>
+          `,
+        data() {
+          return {};
+        },
+        props: {
+          listProp: {
+            type: Array,
+            default() {
+              return [];
+            }
+          }
+        }
+      });
+
+      var vm = new Vue({
+        el: '#app',
+        data: {
+          message: 'hello world',
+          list: [
+            {
+              id: '001',
+              title: '课程1',
+              del: false
+            },
+            {
+              id: '002',
+              title: '课程2',
+              del: true
+            }
+          ]
+        }
+      });
+    </script>
+  </body>
+</html>
