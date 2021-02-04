@@ -1,22 +1,24 @@
 <template>
   <div>
     <!-- 为了log输出在哪渲染 -->
-    {{ log('render') }}
+    {{ log('render dom～～～') }}
     <!-- 当前时间 -->
     {{ now }}
     <!-- 切换按钮 -->
     <button @click="start = !start">{{ start ? '停止' : '开始' }}</button>
     <h1>{{ $data }}</h1>
+    <h1>clockInterval: {{ clockInterval }}</h1>
   </div>
 </template>
 <script>
 import moment from 'moment';
 export default {
   data: function() {
-    console.log('data');
+    console.log('data init～～～');
     return {
       now: moment(new Date()).format('YYYY-MM-DD HH:mm:ss'),
-      start: false
+      start: false,
+      clockInterval: null
     };
   },
   // 监听器

@@ -1,5 +1,3 @@
 <template functional>
-  <div>
-    {{ props }}
-  </div>
+  <div>props: {{ props }}</div>
 </template>

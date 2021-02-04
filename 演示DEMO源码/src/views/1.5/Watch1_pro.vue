@@ -32,14 +32,12 @@ export default {
       clearTimeout(this.firstTimeout);
       this.firstTimeout = setTimeout(() => {
         this.fullName = val + '--' + this.lastName;
-        this.firstTimeout = 1;
       }, 300);
     },
     lastName: function(val) {
       clearTimeout(this.lastTimeout);
       this.lastTimeout = setTimeout(() => {
         this.fullName = this.firstName + '--' + val;
-        this.lastTimeout = 1;
       }, 300);
     }
   },
