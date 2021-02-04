@@ -1,7 +1,7 @@
 <template>
   <div>
     <button @click="show = !show">
-      销毁
+      {{ show ? '销毁' : '加载' }}
     </button>
     <button v-if="show" v-append-text="`hello ${number}`" @click="number++">
       按钮
