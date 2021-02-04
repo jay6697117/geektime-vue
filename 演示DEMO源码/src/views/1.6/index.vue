@@ -1,12 +1,15 @@
 <template>
   <div>
     <a-tabs>
+      <!-- 时钟 -->
       <a-tab-pane key="clock" tab="时钟">
         <button @click="destroyClock = !destroyClock">
           {{ destroyClock ? '加载时钟' : '销毁时钟' }}
         </button>
+        <hr />
         <Clock v-if="!destroyClock" />
       </a-tab-pane>
+      <!-- 函数式组件 -->
       <a-tab-pane key="Functional" tab="函数式组件">
         <Functional :name="name" />
         <TempVar :var1="`hello ${name}`" :var2="destroyClock ? 'hello vue' : 'hello world'">

@@ -1,8 +1,12 @@
 <template>
   <div>
+    <!-- 为了log输出在哪渲染 -->
     {{ log('render') }}
+    <!-- 当前时间 -->
     {{ now }}
+    <!-- 切换按钮 -->
     <button @click="start = !start">{{ start ? '停止' : '开始' }}</button>
+    <h1>{{ $data }}</h1>
   </div>
 </template>
 <script>
@@ -10,18 +14,18 @@ import moment from 'moment';
 export default {
   data: function() {
     console.log('data');
-    this.moment = moment;
-    this.log = window.console.log;
     return {
       now: moment(new Date()).format('YYYY-MM-DD HH:mm:ss'),
       start: false
     };
   },
+  // 监听器
   watch: {
     start() {
       this.startClock();
     }
   },
+  // 生命周期
   beforeCreate() {
     console.log('beforeCreate');
   },
@@ -33,6 +37,7 @@ export default {
   },
   mounted() {
     console.log('mounted');
+    console.log('---------------------------');
     this.startClock();
   },
   beforeUpdate() {
@@ -40,6 +45,7 @@ export default {
   },
   updated() {
     console.log('updated');
+    console.log('---------------------------');
   },
   beforeDestroy() {
     console.log('beforeDestroy');
@@ -48,7 +54,10 @@ export default {
   destroyed() {
     console.log('destroyed');
   },
+  // 方法
   methods: {
+    moment: moment,
+    log: window.console.log,
     startClock() {
       clearInterval(this.clockInterval);
       if (this.start) {
