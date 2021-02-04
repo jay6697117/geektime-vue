@@ -6,7 +6,7 @@
 </template>
 <script>
 import ChildrenA from './ChildrenA';
-import ChildrenA1 from './ChildrenA_a';
+import ChildrenA1 from './ChildrenA1';
 export default {
   components: {
     //ChildrenA
