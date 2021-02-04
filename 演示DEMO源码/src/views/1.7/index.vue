@@ -1,7 +1,7 @@
 <template>
   <a-tabs>
-    <a-tab-pane key="Directives" tab="内置指令">
-      <Directives />
+    <a-tab-pane key="BuildInDirectives" tab="内置指令">
+      <BuildInDirectives />
     </a-tab-pane>
     <a-tab-pane key="CustomerDirectives" tab="自定义指令">
       <CustomerDirectives />
@@ -9,11 +9,11 @@
   </a-tabs>
 </template>
 <script>
-import Directives from './Directives';
+import BuildInDirectives from './BuildInDirectives';
 import CustomerDirectives from './CustomerDirectives';
 export default {
   components: {
-    Directives,
+    BuildInDirectives,
     CustomerDirectives
   }
 };
