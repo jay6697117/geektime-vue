@@ -1,16 +1,16 @@
 <template>
   <div>
-    <!-- <ChildrenA /> -->
-    <ChildrenA1 />
+    <ChildrenA />
+    <!-- <ChildrenA1 /> -->
   </div>
 </template>
 <script>
 import ChildrenA from './ChildrenA';
-import ChildrenA1 from './ChildrenA1';
+// import ChildrenA1 from './ChildrenA1';
 export default {
   components: {
-    //ChildrenA
-    ChildrenA1
+    ChildrenA
+    // ChildrenA1
   }
 };
 </script>
