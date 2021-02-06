@@ -9,8 +9,9 @@
   </a-tabs>
 </template>
 <script>
-import BuildInDirectives from './BuildInDirectives';
-import CustomerDirectives from './CustomerDirectives';
+const BuildInDirectives = () => import('./BuildInDirectives');
+const CustomerDirectives = () => import('./CustomerDirectives');
+
 export default {
   components: {
     BuildInDirectives,
