@@ -1,6 +1,6 @@
 <template>
   <div class="border">
-    <h1>A 结点</h1>
+    <h1>A1 结点</h1>
     <button @click="() => changeColor()">改变color</button>
     <ChildrenB />
     <ChildrenC />

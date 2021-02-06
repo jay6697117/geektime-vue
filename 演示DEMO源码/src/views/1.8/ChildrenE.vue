@@ -7,6 +7,7 @@
 <script>
 export default {
   components: {},
+  // inject: ['theme'],
   inject: {
     theme: {
       default: () => ({})
