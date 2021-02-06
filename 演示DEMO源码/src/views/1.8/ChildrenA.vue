@@ -20,8 +20,8 @@ export default {
   provide() {
     return {
       theme: {
-        color: this.colorObj.color
-        // color: this.color
+        // color: this.colorObj.color
+        color: this.color
       }
     };
   },
@@ -32,21 +32,24 @@ export default {
   // },
   data() {
     return {
-      colorObj: {
-        color: 'blue'
-      }
-      // color: 'blue'
+      // colorObj: {
+      //   color: 'blue'
+      // }
+      color: 'red'
     };
+  },
+  mounted() {
+    console.log('this.injections :>> ', this.injections);
   },
   methods: {
     changeColor(colorParam) {
       console.log('changeColor colorParam :>> ', colorParam);
       if (colorParam) {
-        this.$set(this.colorObj, 'color', colorParam);
-        // this.color = color;
+        // this.$set(this.colorObj, 'color', colorParam);
+        this.color = colorParam;
       } else {
-        this.$set(this.colorObj, 'color', this.colorObj.color === 'blue' ? 'red' : 'blue');
-        // this.color = this.color === 'blue' ? 'red' : 'blue';
+        // this.$set(this.colorObj, 'color', this.colorObj.color === 'blue' ? 'red' : 'blue');
+        this.color = this.color === 'blue' ? 'red' : 'blue';
       }
     }
   }

@@ -1,6 +1,6 @@
 <template>
   <div class="border2">
-    <h3 :style="{ color: theme.color }">E 结点</h3>
+    <h3 :style="{ color: theme1.color }">E 结点</h3>
     <button @click="handleClick">改变color为green</button>
   </div>
 </template>
@@ -9,7 +9,8 @@ export default {
   components: {},
   // inject: ['theme'],
   inject: {
-    theme: {
+    theme1: {
+      from: 'theme',
       default: () => ({})
     }
   },
