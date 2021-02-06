@@ -8,6 +8,7 @@
   </div>
 </template>
 <script>
+import Vue from 'vue';
 import ChildrenB from './ChildrenB';
 import ChildrenC from './ChildrenC';
 import ChildrenD from './ChildrenD';
@@ -18,8 +19,15 @@ export default {
     ChildrenD
   },
   provide() {
+    this.theme = Vue.observable({
+      color: this.color,
+      fontSize: this.fontSize
+    });
     return {
+      theme: this.theme,
       setChildrenRef: (name, ref) => {
+        console.log('provide setChildrenRef name :>> ', name);
+        console.log('provide setChildrenRef ref :>> ', ref);
         this[name] = ref;
       },
       getChildrenRef: name => {
@@ -32,7 +40,8 @@ export default {
   },
   data() {
     return {
-      color: 'blue'
+      color: 'red',
+      fontSize: '52px'
     };
   },
   methods: {

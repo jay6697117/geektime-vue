@@ -1,16 +1,21 @@
 <template>
   <div>
-    <!-- <ChildrenA /> -->
-    <ChildrenA1 />
+    <ChildrenA v-if="showA" />
+    <ChildrenA1 v-else-if="!showA" />
   </div>
 </template>
 <script>
-// import ChildrenA from './ChildrenA';
+import ChildrenA from './ChildrenA';
 import ChildrenA1 from './ChildrenA1';
 export default {
   components: {
-    // ChildrenA
+    ChildrenA,
     ChildrenA1
+  },
+  data() {
+    return {
+      showA: false
+    };
   }
 };
 </script>

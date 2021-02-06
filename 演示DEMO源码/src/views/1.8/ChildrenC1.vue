@@ -1,11 +1,12 @@
 <template>
   <div class="border1">
-    <h2>C 结点</h2>
+    <h2>C1 结点</h2>
     <ChildrenE />
     <ChildrenF />
   </div>
 </template>
 <script>
+import Vue from 'vue';
 import ChildrenE from './ChildrenE';
 import ChildrenF from './ChildrenF';
 export default {
@@ -19,8 +20,11 @@ export default {
     };
   },
   provide() {
+    this.theme = Vue.observable({
+      color: this.color
+    });
     return {
-      theme: this.$data,
+      theme: this.theme,
       changeColor: this.changeColor
     };
   },
@@ -28,7 +32,7 @@ export default {
     changeColor(param) {
       console.log('ChildrenC changeColor param :>> ', param);
       if (param) {
-        this.color = this.color === 'cyan' ? param : 'cyan';
+        this.theme.color = this.theme.color === 'cyan' ? param : 'cyan';
       }
     }
   }
