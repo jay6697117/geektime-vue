@@ -11,9 +11,6 @@ export default {
       from: 'theme',
       default: () => ({})
     }
-  },
-  mounted() {
-    console.log('ChildrenI this :>> ', this);
   }
 };
 </script>

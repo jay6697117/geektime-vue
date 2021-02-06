@@ -1,7 +1,7 @@
 <template>
   <div class="border2">
     <h3 :style="{ color: theme3.color }">E 结点</h3>
-    <button @click="handleClick">改变color为{{ theme3.color === 'purple' ? 'green' : 'purple' }}</button>
+    <button @click="handleClick">改变color为{{ theme3.color === 'cyan' ? 'green' : 'cyan' }}</button>
   </div>
 </template>
 <script>

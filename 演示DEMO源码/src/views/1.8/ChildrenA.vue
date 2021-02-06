@@ -17,14 +17,6 @@ export default {
     ChildrenC,
     ChildrenD
   },
-  // provide() {
-  //   return {
-  //     theme: {
-  //       // color: this.colorObj.color
-  //       color: this.color
-  //     }
-  //   };
-  // },
   provide() {
     return {
       theme: this
@@ -32,9 +24,6 @@ export default {
   },
   data() {
     return {
-      // colorObj: {
-      //   color: 'blue'
-      // }
       color: 'blue'
     };
   },

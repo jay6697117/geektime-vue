@@ -6,6 +6,7 @@
   </div>
 </template>
 <script>
+import Vue from 'vue';
 import ChildrenE from './ChildrenE';
 import ChildrenF from './ChildrenF';
 export default {
@@ -15,19 +16,24 @@ export default {
   },
   data() {
     return {
-      color: 'purple'
+      color: 'cyan'
     };
   },
   provide() {
+    this.theme = Vue.observable({
+      color: this.color,
+      changeColor: this.changeColor
+    });
     return {
-      theme2: this
+      // theme2: this
+      theme2: this.theme
     };
   },
   methods: {
     changeColor(param) {
       console.log('ChildrenC changeColor param :>> ', param);
       if (param) {
-        this.color = this.color === 'purple' ? param : 'purple';
+        this.theme.color = this.theme.color === 'cyan' ? param : 'cyan';
       }
     }
   }
