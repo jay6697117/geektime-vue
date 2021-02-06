@@ -1,6 +1,6 @@
-<template functional>
+<template>
   <div class="border2">
-    <h3 :style="{ color: injections.theme1.color }">I 结点6</h3>
+    <h3 :style="{ color: theme1.color }">I 结点6</h3>
   </div>
 </template>
 
@@ -13,7 +13,7 @@ export default {
     }
   },
   mounted() {
-    console.log('this :>> ', this);
+    console.log('ChildrenI this :>> ', this);
   }
 };
 </script>

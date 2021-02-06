@@ -1,7 +1,7 @@
 <template>
   <div class="border">
     <h1>A 结点</h1>
-    <button @click="() => changeColor('red')">改变color</button>
+    <button @click="() => changeColor()">改变color</button>
     <ChildrenB />
     <ChildrenC />
     <ChildrenD />
@@ -17,38 +17,33 @@ export default {
     ChildrenC,
     ChildrenD
   },
-  provide() {
-    return {
-      theme: {
-        // color: this.colorObj.color
-        color: this.color
-      }
-    };
-  },
   // provide() {
   //   return {
-  //     theme: this
+  //     theme: {
+  //       // color: this.colorObj.color
+  //       color: this.color
+  //     }
   //   };
   // },
+  provide() {
+    return {
+      theme: this
+    };
+  },
   data() {
     return {
       // colorObj: {
       //   color: 'blue'
       // }
-      color: 'red'
+      color: 'blue'
     };
-  },
-  mounted() {
-    console.log('this.injections :>> ', this.injections);
   },
   methods: {
     changeColor(colorParam) {
       console.log('changeColor colorParam :>> ', colorParam);
       if (colorParam) {
-        // this.$set(this.colorObj, 'color', colorParam);
         this.color = colorParam;
       } else {
-        // this.$set(this.colorObj, 'color', this.colorObj.color === 'blue' ? 'red' : 'blue');
         this.color = this.color === 'blue' ? 'red' : 'blue';
       }
     }

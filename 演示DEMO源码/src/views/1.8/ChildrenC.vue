@@ -12,13 +12,24 @@ export default {
   components: {
     ChildrenE,
     ChildrenF
+  },
+  data() {
+    return {
+      color: 'purple'
+    };
+  },
+  provide() {
+    return {
+      theme2: this
+    };
+  },
+  methods: {
+    changeColor(param) {
+      console.log('ChildrenC changeColor param :>> ', param);
+      if (param) {
+        this.color = this.color === 'purple' ? param : 'purple';
+      }
+    }
   }
-  // provide() {
-  //   return {
-  //     theme: {
-  //       color: "green"
-  //     }
-  //   };
-  // }
 };
 </script>
