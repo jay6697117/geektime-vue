@@ -1,6 +1,6 @@
 <template>
   <h1 v-if="level === 1">
-    <slot>默认内容1</slot>
+    <slot></slot>
   </h1>
   <h2 v-else-if="level === 2">
     <slot></slot>
