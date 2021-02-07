@@ -27,8 +27,8 @@ export default {
     return {
       theme: this.theme,
       setChildrenRef: (name, ref) => {
-        console.log('provide setChildrenRef name :>> ', name);
-        console.log('provide setChildrenRef ref :>> ', ref);
+        // console.log('provide setChildrenRef name :>> ', name);
+        // console.log('provide setChildrenRef ref :>> ', ref);
         this[name] = ref;
       },
       getChildrenRef: name => {
@@ -47,7 +47,7 @@ export default {
   },
   methods: {
     getEH3Ref() {
-      console.log(this.childrenE);
+      console.log(this['childrenE']);
     }
   }
 };
