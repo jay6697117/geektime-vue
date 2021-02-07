@@ -1,11 +1,24 @@
 <template>
   <div>
     <span>Message: {{ msg }}</span>
-    <br />
+    <hr />
     <VNodes :vnodes="getJSXSpan()" />
-    <anchored-heading1 :level="1">Hello world!</anchored-heading1>
-    <anchored-heading2 :level="2">Hello world!</anchored-heading2>
-    <anchored-heading3 :level="3">Hello world!</anchored-heading3>
+    <hr />
+    <anchored-heading1 :level="1">
+      <template>
+        Hello world 111!
+      </template>
+    </anchored-heading1>
+    <anchored-heading2 :level="2">
+      <template>
+        Hello world 222!
+      </template>
+    </anchored-heading2>
+    <anchored-heading3 :level="3">
+      <template>
+        Hello world 333!
+      </template>
+    </anchored-heading3>
     <VNodes :vnodes="getAnchoredHeading(4)" />
   </div>
 </template>

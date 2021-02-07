@@ -31,11 +31,11 @@ export default {
         // console.log('provide setChildrenRef ref :>> ', ref);
         this[name] = ref;
       },
-      getChildrenRef: name => {
-        return this[name];
-      },
       getRef: () => {
         return this;
+      },
+      getChildrenRef: name => {
+        return this[name];
       }
     };
   },

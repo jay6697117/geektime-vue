@@ -2,8 +2,8 @@
   <div class="border1">
     <h2>D 结点</h2>
     <ChildrenG />
-    <ChildrenH v-ant-ref="c => setChildrenRef1('childrenH', c)" />
-    <ChildrenI v-ant-ref="c => setChildrenRef2('childrenI', c)" />
+    <ChildrenH v-ant-ref="c => setChildrenRef('childrenH', c)" />
+    <ChildrenI v-ant-ref="c => setChildrenRef('childrenI', c)" />
   </div>
 </template>
 <script>
@@ -17,12 +17,7 @@ export default {
     ChildrenI
   },
   inject: {
-    setChildrenRef1: {
-      from: 'setChildrenRef',
-      default: () => {}
-    },
-    setChildrenRef2: {
-      from: 'setChildrenRef',
+    setChildrenRef: {
       default: () => {}
     }
   }

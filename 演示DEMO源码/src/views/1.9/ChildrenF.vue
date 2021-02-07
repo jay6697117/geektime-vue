@@ -11,24 +11,33 @@ export default {
   name: 'ChildrenF',
   components: {},
   inject: {
-    getParentRef: {
-      from: 'getRef',
+    // getParentRef: {
+    //   from: 'getRef',
+    //   default: () => {}
+    // },
+    // getParentChildrenRef: {
+    //   from: 'getChildrenRef',
+    //   default: () => {}
+    // },
+    getRef: {
       default: () => {}
     },
-    getParentChildrenRef: {
-      from: 'getChildrenRef',
+    getChildrenRef: {
       default: () => {}
     }
   },
   methods: {
     getARef() {
-      console.log(this.getParentRef());
+      // console.log(this.getParentRef());
+      console.log(this.getRef());
     },
     getHRef() {
-      console.log(this.getParentChildrenRef('childrenH'));
+      // console.log(this.getParentChildrenRef('childrenH'));
+      console.log(this.getChildrenRef('childrenH'));
     },
     getIRef() {
-      console.log(this.getParentChildrenRef('childrenI'));
+      // console.log(this.getParentChildrenRef('childrenI'));
+      console.log(this.getChildrenRef('childrenI'));
     }
   }
 };
