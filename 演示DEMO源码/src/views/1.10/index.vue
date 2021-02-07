@@ -1,5 +1,6 @@
 <template>
   <div>
+    <hr />
     <span>Message: {{ msg }}</span>
     <hr />
 
