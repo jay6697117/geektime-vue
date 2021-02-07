@@ -13,6 +13,7 @@ import ChildrenB from './ChildrenB';
 import ChildrenC from './ChildrenC';
 import ChildrenD from './ChildrenD';
 export default {
+  name: 'ChildrenA',
   components: {
     ChildrenB,
     ChildrenC,

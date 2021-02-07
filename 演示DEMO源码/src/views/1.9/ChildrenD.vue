@@ -2,8 +2,8 @@
   <div class="border1">
     <h2>D 结点</h2>
     <ChildrenG />
-    <ChildrenH v-ant-ref="c => setChildrenRef('childrenH', c)" />
-    <ChildrenI />
+    <ChildrenH v-ant-ref="c => setChildrenRef('ChildrenH', c)" />
+    <ChildrenI v-ant-ref="c => setChildrenRef('childrenI', c)" />
   </div>
 </template>
 <script>
