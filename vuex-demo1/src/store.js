@@ -6,22 +6,27 @@ const store = new Vuex.Store({
   state: {
     count: 0
   },
+  // state() {
+  //   return {
+  //     count: 0
+  //   };
+  // },
   getters: {
     doubleCount(state) {
       return state.count * 2;
     }
   },
   mutations: {
-    increment(state) {
-      state.count++;
+    increment(state, num) {
+      state.count += num;
     }
   },
   actions: {
     increment({ commit }) {
       new Promise(resolve => {
-        setTimeout(resolve, 1000);
+        setTimeout(resolve, 500);
       }).then(() => {
-        commit('increment');
+        commit('increment', 1);
       });
     }
   }

@@ -1,35 +1,37 @@
-import Vue from 'vue'
-import Vuex from './min-vuex'
-import App from './App.vue'
+import Vue from 'vue';
+// import Vuex from 'vuex';
+import Vuex from './min-vuex';
+import App from './App.vue';
+Vue.use(Vuex);
 
-Vue.use(Vuex)
-Vue.config.productionTip = false
+Vue.config.productionTip = false;
 
 const store = new Vuex.Store({
   state: {
-    count: 0,
+    count: 0
   },
-  mutations: {
-    increment(state) {
-      state.count++
-    }
-  },
-  // actions: {
-  //   increment({commit}) {
-  //     setTimeout(()=>{
-  //       // state.count++ // 不要对state进行更改操作，应该通过commit交给mutations去处理
-  //       commit('increment')
-  //     }, 3000)
-  //   }
-  // },
   // getters: {
   //   doubleCount(state) {
-  //     return state.count * 2
+  //     return state.count * 2;
+  //   }
+  // },
+  mutations: {
+    increment(state) {
+      state.count += 1;
+    }
+  }
+  // actions: {
+  //   increment({ commit }) {
+  //     setTimeout(() => {
+  //       commit('increment');
+  //     }, 500);
   //   }
   // }
-})
-Vue.prototype.$store = store
+});
+
+Vue.prototype.$store = store;
+
 new Vue({
   // store,
-  render: h => h(App),
-}).$mount('#app')
+  render: h => h(App)
+}).$mount('#app');
