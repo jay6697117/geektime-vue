@@ -1,6 +1,7 @@
 import Vue from 'vue';
 // import Vuex from 'vuex';
 import Vuex from './min-vuex';
+console.log('Vuex :>> ', Vuex);
 import App from './App.vue';
 Vue.use(Vuex);
 
@@ -11,19 +12,19 @@ const store = new Vuex.Store({
     count: 0
   },
   // getters: {
-  //   doubleCount(state) {
+  //   doubleCount: function (state) {
   //     return state.count * 2;
   //   }
   // },
   mutations: {
-    increment(state) {
-      state.count += 1;
+    increment: function (state, payload) {
+      state.count += payload;
     }
-  }
+  },
   // actions: {
-  //   increment({ commit }) {
+  //   increment: function ({ commit }) {
   //     setTimeout(() => {
-  //       commit('increment');
+  //       commit('increment', 10);
   //     }, 500);
   //   }
   // }
