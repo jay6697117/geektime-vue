@@ -17,22 +17,25 @@
 import { mapState, mapActions } from 'vuex';
 
 export default {
-  computed: mapState({
-    products: state => state.products.all
-  }),
-  // computed: {
-  //   products(){
-  //     return this.$store.state.products.all
-  //   }
-  // },
-  methods: mapActions('cart', ['addProductToCart']),
-  // methods: {
-  //   addProductToCart(product){
-  //     this.$store.dispatch('cart/addProductToCart', product)
-  //   }
-  // },
+  computed: {
+    products() {
+      return this.$store.state.products.all;
+    }
+    // ...mapState({
+    //   products: state => state.products.all
+    // })
+  },
+  methods: {
+    addProductToCart(product) {
+      this.$store.dispatch('cart/addProductToCart', product);
+    }
+    // ...mapActions('cart', ['addProductToCart'])
+  },
   created() {
     this.$store.dispatch('products/getAllProducts');
+  },
+  mounted() {
+    // console.log('products this :>> ', this);
   }
 };
 </script>

@@ -12,7 +12,7 @@
 </template>
 
 <script>
-// import { mapState } from 'vuex';
+import { mapState } from 'vuex';
 import ProductList from './components/ProductList.vue';
 import ShoppingCart from './components/ShoppingCart.vue';
 
@@ -23,23 +23,20 @@ export default {
     };
   },
   computed: {
-    email() {
-      return this.$store.state.userInfo.email;
-    },
     title() {
       return this.text;
+    },
+    email() {
+      return this.$store.state.userInfo.email;
     }
+    // ...mapState({
+    //   email: state => state.userInfo.email
+    // })
   },
-  // computed: mapState({
-  //   email: state => state.userInfo.email,
-  //   title: function() {
-  //     return this.text;
-  //   }
-  // }),
   components: { ProductList, ShoppingCart },
   mounted() {
     window.vm = this._data;
-    console.log('App this.$store :>> ', this.$store);
+    // console.log('App this :>> ', this);
   }
 };
 </script>
