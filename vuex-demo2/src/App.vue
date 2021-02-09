@@ -11,7 +11,6 @@ export default {
   name: 'app',
   computed: {
     count() {
-      console.log('this.$store.state :>> ', this.$store.state);
       return this.$store.state.count;
     }
   }

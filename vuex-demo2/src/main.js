@@ -1,7 +1,7 @@
 import Vue from 'vue';
 // import Vuex from 'vuex';
 import Vuex from './min-vuex';
-console.log('Vuex :>> ', Vuex);
+// console.log('Vuex :>> ', Vuex);
 import App from './App.vue';
 Vue.use(Vuex);
 

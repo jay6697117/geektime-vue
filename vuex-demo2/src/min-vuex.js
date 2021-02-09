@@ -20,7 +20,7 @@ Store.prototype.commit = function (type, payload) {
 //1.0 Object.defineProperty
 Object.defineProperty(Store.prototype, 'state', {
   get: function () {
-    console.log('this :>> ', this);
+    // console.log('this :>> ', this);
     console.log('this._vm :>> ', this._vm);
     return this._vm._data.$$state;
   }
