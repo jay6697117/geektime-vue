@@ -1,13 +1,17 @@
-import RouterDemo from './components/RouterDemo'
-import RouterChildrenDemo from './components/RouterChildrenDemo'
+import Vue from 'vue';
+import VueRouter from 'vue-router';
+Vue.use(VueRouter);
+const RouterDemo = import('./components/RouterDemo');
+const RouterChildrenDemo = import('./components/RouterChildrenDemo');
 
 const routes = [
   { path: '/foo', component: RouterDemo, name: '1' },
   { path: '/bar', component: RouterDemo, name: '2' },
   // 当 /user/:id 匹配成功，
   // RouterDemo 会被渲染在 App 的 <router-view /> 中
-  { path: '/user/:id', 
-    component: RouterDemo, 
+  {
+    path: '/user/:id',
+    component: RouterDemo,
     name: '3',
     props: true,
     children: [
@@ -28,6 +32,15 @@ const routes = [
   },
   { path: '/a', redirect: '/bar' },
   { path: '*', component: RouterDemo, name: '404' }
-]
+];
 
-export default routes
+console.log('process.env :>> ', process.env);
+console.log('process.env.BASE_URL :>> ', process.env.BASE_URL);
+
+const router = new VueRouter({
+  mode: 'history',
+  base: process.env.BASE_URL,
+  routes
+});
+
+export default router;
