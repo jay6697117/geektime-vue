@@ -1,5 +1,5 @@
 <template>
-  <div class="rv-router-children-demo">
+  <div class="rv-router-children-demo1">
     {{ routerInfo }}
   </div>
 </template>
@@ -8,6 +8,7 @@ export default {
   name: 'RouterChildrenDemo',
   computed: {
     routerInfo() {
+      console.log('RouterChildrenDemo this :>> ', this);
       const { fullPath, path, name, params, query, meta } = this.$route;
       return {
         fullPath,

@@ -21,14 +21,14 @@ const routes = [
         // RouterChildrenDemo 会被渲染在 RouterDemo 的 <router-view/> 中
         path: 'profile',
         component: RouterChildrenDemo,
-        name: 'RouterChildrenDemo3-1'
+        name: 'RouterDemo3Children1'
       },
       {
         // 当 /user/:id/posts 匹配成功
         // RouterChildrenDemo 会被渲染在 RouterDemo 的 <router-view/> 中
         path: 'posts',
         component: RouterChildrenDemo,
-        name: 'RouterChildrenDemo3-2'
+        name: 'RouterDemo3Children2'
       }
     ]
   },

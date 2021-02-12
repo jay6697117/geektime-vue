@@ -1,11 +1,12 @@
 <template>
   <div id="app">
     <h2>router demo</h2>
-    <router-view class="rv-app"></router-view>
+    <router-view class="rv-router-demo"></router-view>
   </div>
 </template>
 
 <script>
+//根组件
 export default {
   name: 'App',
   components: {}
