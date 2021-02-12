@@ -1,13 +1,13 @@
 <template>
   <div id="app">
     <h2>router demo</h2>
-    <router-view></router-view>
+    <router-view class="rv-app"></router-view>
   </div>
 </template>
 
 <script>
 export default {
-  name: 'app',
+  name: 'App',
   components: {}
 };
 </script>
@@ -20,5 +20,10 @@ export default {
   text-align: center;
   color: #2c3e50;
   margin-top: 60px;
+}
+
+.rv-app {
+  background-color: #eee;
+  padding: 10px 0;
 }
 </style>
