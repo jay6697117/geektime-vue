@@ -32,7 +32,7 @@ const routes = [
       }
     ]
   },
-  { path: '/a', redirect: '/bar' },
+  { path: '/a', redirect: '/bar' }, //重定向
   { path: '*', component: RouterDemo, name: 'Page404' }
 ];
 
@@ -41,6 +41,7 @@ console.log('process.env.BASE_URL :>> ', process.env.BASE_URL);
 
 const router = new VueRouter({
   mode: 'history',
+  // mode: 'hash',
   base: process.env.BASE_URL,
   routes
 });

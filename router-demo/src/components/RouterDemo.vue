@@ -19,6 +19,7 @@
     <button @click="$router.push('/foo')">Go to Foo push</button>
     <p>id: {{ id }}</p>
     <p>{{ routerInfo }}</p>
+    <!-- RouterDemo的 <router-view/> -->
     <router-view class="rv-router-children-demo"></router-view>
   </div>
 </template>
@@ -28,7 +29,7 @@ export default {
   props: ['id'],
   computed: {
     routerInfo() {
-      console.log('RouterDemo this :>> ', this);
+      console.log('RouterDemo this._routerRoot._route :>> ', this._routerRoot._route);
       const { fullPath, path, name, params, query, meta } = this.$route;
       return {
         fullPath,

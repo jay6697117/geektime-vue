@@ -1,5 +1,7 @@
 <template>
   <div id="app">
+    <a :href="url" target="_blank">{{ title }}</a>
+    <hr />
     <h2>router demo</h2>
     <router-view class="rv-router-demo"></router-view>
   </div>
@@ -9,7 +11,19 @@
 //根组件
 export default {
   name: 'App',
-  components: {}
+  data() {
+    return {
+      url: 'https://www.baidu.com/',
+      title: 'Baidu'
+    };
+  },
+  components: {},
+  mounted() {
+    setTimeout(() => {
+      this.url = 'https://learn.kaikeba.com/home';
+      this.title = 'Kaikeba';
+    }, 3000);
+  }
 };
 </script>
 

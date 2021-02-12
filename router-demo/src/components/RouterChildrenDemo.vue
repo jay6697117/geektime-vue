@@ -8,7 +8,7 @@ export default {
   name: 'RouterChildrenDemo',
   computed: {
     routerInfo() {
-      console.log('RouterChildrenDemo this :>> ', this);
+      console.log('RouterChildrenDemo this._routerRoot._route :>> ', this._routerRoot._route);
       const { fullPath, path, name, params, query, meta } = this.$route;
       return {
         fullPath,

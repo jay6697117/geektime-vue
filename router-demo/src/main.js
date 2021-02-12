@@ -4,6 +4,8 @@ import router from './router';
 
 Vue.config.productionTip = false;
 
+console.log('Vue.util :>> ', Vue.util);
+
 //根实例
 new Vue({
   router,
