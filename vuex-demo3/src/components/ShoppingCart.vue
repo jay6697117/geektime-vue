@@ -45,6 +45,7 @@ export default {
   methods: {
     checkout(products) {
       this.$store.dispatch('cart/checkout', products);
+      this.$emit('checkoutProducts', products); //测试Vue Devtools Events功能
     }
   }
 };
