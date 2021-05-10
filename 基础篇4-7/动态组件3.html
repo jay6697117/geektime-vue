@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>动态组件3</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./vue.js"></script>
+    <style>
+      .table {
+        border: 1px solid #000;
+        width: 100%;
+        height: 50px;
+      }
+
+      table tbody {
+        height: 100%;
+        display: flex;
+        align-items: center;
+      }
+
+      .comp {
+        width: 100%;
+        background-color: #ccc;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="dynamic-component-demo">
+      <table class="table">
+        <!-- <blog-post-row class="comp"></blog-post-row> -->
+        <tr is="blog-post-row"></tr>
+      </table>
+    </div>
+
+    <script>
+      //注册一个全局组件
+      Vue.component('blog-post-row', {
+        template: '<div class="comp">blog-post-row component</div>'
+      });
+
+      new Vue({
+        el: '#dynamic-component-demo',
+        data() {
+          return {};
+        },
+        computed: {}
+      });
+    </script>
+  </body>
+</html>

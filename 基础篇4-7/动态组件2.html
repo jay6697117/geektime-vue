@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>动态组件2</title>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="./vue.js"></script>
+    <style>
+      .tab-button {
+        padding: 6px 10px;
+        border-top-left-radius: 3px;
+        border-top-right-radius: 3px;
+        border: 1px solid #bbb;
+        cursor: pointer;
+        background: #f0f0f0;
+        margin-bottom: -1px;
+        margin-right: -1px;
+      }
+      .tab-button:hover {
+        background: #ccc;
+      }
+      .tab-button.active {
+        background: #ccc;
+      }
+      .tab {
+        border: 1px solid #ccc;
+        padding: 10px;
+      }
+    </style>
+  </head>
+  <body>
+    <div id="dynamic-component-demo" class="demo">
+      <button
+        v-for="tab in tabs"
+        :key="tab.name"
+        :class="['tab-button', { active: currentTab.name === tab.name }]"
+        @click="currentTab = tab"
+      >
+        {{ tab.name }}
+      </button>
+
+      <component :is="currentTab.component" class="tab"></component>
+    </div>
+
+    <script>
+      const tabs = [
+        {
+          name: 'Home',
+          component: {
+            template: '<div>msg1: {{msg1}}</div>',
+            data() {
+              return {
+                msg1: 'Home component content'
+              };
+            }
+          }
+        },
+        {
+          name: 'Posts',
+          component: {
+            template: '<div>msg2: {{msg2}}</div>',
+            data() {
+              return {
+                msg2: 'Posts component content'
+              };
+            }
+          }
+        },
+        {
+          name: 'Archive',
+          component: {
+            template: '<div>msg3: {{msg3}}</div>',
+            data() {
+              return {
+                msg3: 'Archive component content'
+              };
+            }
+          }
+        }
+      ];
+
+      new Vue({
+        el: '#dynamic-component-demo',
+        data() {
+          return {
+            tabs,
+            currentTab: tabs[0] //对象
+          };
+        }
+      });
+    </script>
+  </body>
+</html>
