@@ -11,18 +11,10 @@
     <div id="app">
       {{message}} {{message + message}}
       <div :id="message"></div>
-      <!-- <todo-list>
-        <todo-item
-          data-test="li-test"
-          @delete="handleDelete"
-          v-for="item in list"
-          :key="item.id"
-          :title="item.title"
-          :del="item.del"
-        ></todo-item>
-      </todo-list> -->
       <todo-list>
-        <template v-slot:default>
+        <template v-slot:default="{msg}">
+          <!-- <template slot="default" slot-scope="{msg}"> -->
+          <h1>{{msg}}</h1>
           <todo-item
             data-test="li-test"
             @delete="handleDelete"
@@ -86,40 +78,43 @@
         // 默认插槽
         template: `
             <ul>
-              <slot></slot>
+              <slot name="default" :msg="msg"></slot>
             </ul>
           `,
         data() {
-          return {};
+          return {
+            msg: 'I am todo-list'
+          };
         }
       });
 
-      //vue根实例只有一个所有不用考虑data选项复用导致的对象类型引用问题
       new Vue({
-        data: {
-          message: 'hello world',
-          list: [
-            {
-              id: '001',
-              title: '课程1',
-              del: false
-            },
-            {
-              id: '002',
-              title: '课程2',
-              del: true
-            },
-            {
-              id: '003',
-              title: '课程3',
-              del: false
-            },
-            {
-              id: '004',
-              title: '课程4',
-              del: true
-            }
-          ]
+        data() {
+          return {
+            message: 'hello world',
+            list: [
+              {
+                id: '001',
+                title: '课程1',
+                del: false
+              },
+              {
+                id: '002',
+                title: '课程2',
+                del: true
+              },
+              {
+                id: '003',
+                title: '课程3',
+                del: false
+              },
+              {
+                id: '004',
+                title: '课程4',
+                del: true
+              }
+            ]
+          };
         },
         methods: {
           handleDelete(val) {
