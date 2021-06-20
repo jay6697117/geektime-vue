@@ -8,30 +8,35 @@
     <div class="bg" :id="message"></div>
     <hr />
     <todo-list>
-      <todo-item @delete="handleDelete" v-for="item in list" :key="item.id" :title="item.title" :del="item.del">
-        <template v-slot:pre-icon="{ icon }">
-          <span> 前置图标: {{ icon }} </span>
-        </template>
-        <template v-slot:suf-emoji="{ emoji }">
-          <span> 后置图标: {{ emoji }} </span>
-        </template>
-      </todo-item>
+      <template v-slot:default="{ msg }">
+        <button>msg1: {{ msg }}</button>
+        <todo-item @delete="handleDelete" v-for="item in list" :key="item.id" :title="item.title" :del="item.del">
+          <template v-slot:pre-icon="{ icon }">
+            <button>msg2: {{ msg }}</button>
+            <span>前置图标: {{ icon }}</span>
+          </template>
+          <template v-slot:suf-emoji="{ emoji }">
+            <button>msg3: {{ msg }}</button>
+            <span>后置图标: {{ emoji }}</span>
+          </template>
+        </todo-item>
+      </template>
     </todo-list>
   </div>
 </template>
 
 <script>
 //App.vue是根组件
-const TodoList = () => import('@/components/TodoList.vue');
-const TodoItem = () => import('@/components/TodoItem.vue');
-const HelloWorld = () => import('@/components/HelloWorld.vue');
+// const TodoList = () => import('@/components/TodoList.vue');
+// const TodoItem = () => import('@/components/TodoItem.vue');
+// const HelloWorld = () => import('@/components/HelloWorld.vue');
 
 export default {
   name: 'App',
   components: {
-    TodoItem,
-    TodoList,
-    HelloWorld
+    // TodoItem,
+    // TodoList,
+    // HelloWorld
   },
   data() {
     return {
@@ -46,6 +51,11 @@ export default {
           id: '002',
           title: '课程2',
           del: true
+        },
+        {
+          id: '003',
+          title: '课程3',
+          del: false
         }
       ]
     };
